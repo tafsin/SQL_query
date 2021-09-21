@@ -1,0 +1,8 @@
+1.set @country='bangladesh';
+SELECT book.book_title from author JOIN publishedbook ON author.author_id=publishedbook.author_id JOIN book ON book.book_id=publishedbook.book_id WHERE author.country=country;
+
+2.select count(publishedbook.book_id) from publishedbook JOIN author ON publishedbook.author_id=author.author_id WHERE author.author_name='author1';
+
+2.SET @id = (SELECT author_id FROM author WHERE author_name='Humayun Ahmed');
+SET @b_id= (SELECT book_id FROM published_book WHERE author_id=@id);
+SELECT COUNT(book_title) FROM book WHERE book_id = @b_id;
